@@ -1,0 +1,233 @@
+[
+  {
+    "quesPart1": "Every Child has the right to",
+    "quesPart2": "and Health.",
+    "options": [
+      "Phone",
+      "Candy",
+      "Life",
+      "Drive"
+    ],
+    "correctOption": 3
+  },
+  {
+    "quesPart1": "Children have the right to",
+    "quesPart2": "and Protection without discrimination.",
+    "options": [
+      "Education",
+      "Shop",
+      "Party",
+      "Sleep"
+    ],
+    "correctOption": 1
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "includes access to education and free primary education.",
+    "options": [
+      "Play",
+      "Education",
+      "Life",
+      "Health"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Every child has the right to be protected from",
+    "quesPart2": "and Neglect.",
+    "options": [
+      "Cat",
+      "Teacher",
+      "Abuse",
+      "Scolding"
+    ],
+    "correctOption": 3
+  },
+  {
+    "quesPart1": "Children have the right to express their",
+    "quesPart2": "freely.",
+    "options": [
+      "Stubbornness",
+      "Anger",
+      "Lies",
+      "Opinions"
+    ],
+    "correctOption": 4
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "means that children have the right to be cared for and loved.",
+    "options": [
+      "Friends",
+      "Family",
+      "Study",
+      "Life"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Children have the right to",
+    "quesPart2": "and Medical care.",
+    "options": [
+      "Health",
+      "Sleep",
+      "Play",
+      "Study"
+    ],
+    "correctOption": 1
+  },
+  {
+    "quesPart1": "Children should not be separated from their",
+    "quesPart2": "unless it is in their best interest.",
+    "options": [
+      "Room",
+      "Books",
+      "Families",
+      "Clothes"
+    ],
+    "correctOption": 3
+  },
+  {
+    "quesPart1": "Every child has the right to",
+    "quesPart2": "and Leisure.",
+    "options": [
+      "Yell",
+      "Play",
+      "Study",
+      "Skip class"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Children should be protected from",
+    "quesPart2": "and Exploitation.",
+    "options": [
+      "Scolding",
+      "Homework",
+      "Teacher",
+      "Violence"
+    ],
+    "correctOption": 4
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "means that children have the right to play and rest.",
+    "options": [
+      "Leisure",
+      "Education",
+      "Life",
+      "Health"
+    ],
+    "correctOption": 1
+  },
+  {
+    "quesPart1": "Children have the right to",
+    "quesPart2": "and Nationality.",
+    "options": [
+      "Study",
+      "Life",
+      "Identity",
+      "Play"
+    ],
+    "correctOption": 3
+  },
+  {
+    "quesPart1": "Every child has the right to",
+    "quesPart2": "and Shelter.",
+    "options": [
+      "Cake",
+      "Food",
+      "Party",
+      "Video Games"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Children have the right to",
+    "quesPart2": "and Participation.",
+    "options": [
+      "Vote",
+      "Play",
+      "Vacation",
+      "Freedom of Expression"
+    ],
+    "correctOption": 4
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "means that children have the right to a name and a nationality.",
+    "options": [
+      "Life",
+      "Leisure",
+      "Identity",
+      "Education"
+    ],
+    "correctOption": 3
+  },
+  {
+    "quesPart1": "Children should not be subjected to",
+    "quesPart2": "or Cruelty.",
+    "options": [
+      "Scolding",
+      "Torture",
+      "Punishment",
+      "Homework"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Every child has the right to",
+    "quesPart2": "and Education.",
+    "options": [
+      "Cake",
+      "Culture",
+      "Video Games",
+      "Drive"
+    ],
+    "correctOption": 2
+  },
+  {
+    "quesPart1": "Children have the right to",
+    "quesPart2": "and Security.",
+    "options": [
+      "Safety",
+      "Swim",
+      "Travel",
+      "Explore"
+    ],
+    "correctOption": 1
+  },
+  {
+    "quesPart1": "Every child has the right to",
+    "quesPart2": "and Nutrition.",
+    "options": [
+      "Study",
+      "Junk Food",
+      "Candies",
+      "Health Care"
+    ],
+    "correctOption": 4
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "means that children have the right to protection during armed conflicts.",
+    "options": [
+      "Protection",
+      "Health",
+      "Eductation",
+      "Leisure"
+    ],
+    "correctOption": 1
+  },
+  {
+    "quesPart1": "The right to",
+    "quesPart2": "means that children have the right to information from the media that is age suitable.",
+    "options": [
+      "Protection",
+      "Health",
+      "Information",
+      "Leisure"
+    ],
+    "correctOption": 3
+  }
+]

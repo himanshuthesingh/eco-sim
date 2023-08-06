@@ -1,0 +1,32 @@
+.menu-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 92vh;
+}
+
+.menu-section {
+  width: 20vw;
+  height: 50vh;
+  text-align: center;
+  border: black;
+  border-width: thick;
+  border-style: groove;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-section:hover {
+  width: 25vw;
+  height: 55vh;
+  background-color: burlywood;
+  cursor: pointer;
+}
+
+.menu-option {
+  font-size: xxx-large;
+  font-family: fantasy;
+  margin: 10%;
+}

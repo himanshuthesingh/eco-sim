@@ -1,0 +1,35 @@
+.welcomePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20vh;
+  margin-bottom: 25vh;
+  height: 55vh;
+}
+
+.primary-heading {
+  font-weight: bold;
+  font-family: "georgia", serif;
+  font-size: xxx-large;
+}
+
+.secondary-heading {
+  font-weight: normal;
+  font-family: monospace;
+  font-size: x-large;
+  padding-top: 6vh;
+}
+
+.input {
+  font-size: x-large;
+  font-family: cursive;
+  text-align: center;
+  margin-bottom: 6vh;
+}
+
+.submit {
+  font-size: xx-large;
+  font-family: fantasy;
+  width: 15vw;
+}

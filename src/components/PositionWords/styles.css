@@ -1,0 +1,116 @@
+.position-words {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pw-header {
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pw-heading {
+  font-size: 4rem;
+  font-family: fantasy;
+  width: 10rem;
+}
+
+.pw-score {
+  font-size: 2rem;
+  font-family: fantasy;
+}
+
+.pw-life {
+  font-size: 2rem;
+  font-family: fantasy;
+}
+
+.pw-instruction {
+  font-weight: bold;
+  font-family: "georgia", serif;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.pw-ques {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 3rem 0;
+}
+
+.pw-ques-part {
+  font-family: cursive;
+  font-size: 1.5rem;
+}
+
+.pw-ques-blank {
+  font-family: cursive;
+  font-size: 1.5rem;
+  background-color: beige;
+  padding: 0.5rem 0.8rem;
+  margin: 0 1rem;
+  border-radius: 1rem;
+}
+
+.pw-answer {
+  text-decoration: underline;
+}
+
+.pw-options {
+  font-weight: 900;
+  font-family: cursive;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  margin: 1rem 0;
+}
+
+.pw-option {
+  padding: 0.5rem;
+  background-color: beige;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  cursor: pointer;
+}
+
+.pw-option:hover {
+  background-color: burlywood;
+}
+
+.pw-option:active {
+  background-color: burlywood;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.pw-option-disabled {
+  pointer-events: none;
+}
+
+.pw-next-btn-box {
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.pw-next-btn {
+  font-weight: 900;
+  font-family: monospace;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+}
