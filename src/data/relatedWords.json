@@ -1,0 +1,502 @@
+[
+  {
+    "category": "Renewable",
+    "options": [
+      "Coal",
+      "Wind Power",
+      "Oil",
+      "Gas"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Renewable",
+    "options": [
+      "Tidal Energy",
+      "Gasoline",
+      "Nuclear Power",
+      "Coal"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Reduce",
+    "options": [
+      "Sleep",
+      "Work",
+      "Marine Pollution",
+      "Games"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Protect",
+    "options": [
+      "Homework",
+      "Job",
+      "Toys",
+      "Marine Ecosystem"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Protect",
+    "options": [
+      "Tides",
+      "Games",
+      "Phone",
+      "Biodiversity"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Protect",
+    "options": [
+      "Threatened Species",
+      "Celebrity",
+      "Clothes",
+      "Sunlight"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Poaching",
+    "options": [
+      "Cooking",
+      "Illegal",
+      "Legal",
+      "Job"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Non-Renewable",
+    "options": [
+      "Biomass",
+      "Plant",
+      "Wood",
+      "Uranium"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Non-Renewable",
+    "options": [
+      "Sunlight",
+      "Water",
+      "Coal",
+      "Geothermal"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Natural Resource",
+    "options": [
+      "Air & Water",
+      "Petrol",
+      "Electricity",
+      "Gas"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Conserve",
+    "options": [
+      "Antiques",
+      "Art",
+      "Forests",
+      "Sunlight"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Conserve",
+    "options": [
+      "Air",
+      "Freshwater Ecosystem",
+      "Wind",
+      "Games"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Conserve",
+    "options": [
+      "Coastal Areas",
+      "Moon",
+      "Snacks",
+      "Video Games"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Climate Change Cause",
+    "options": [
+      "Agriculture",
+      "Greenhouse Gases",
+      "Aforestation",
+      "Gaming"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Climate Change Cause",
+    "options": [
+      "Fishing",
+      "Painting",
+      "Deforestation",
+      "Soil Erosion"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Efficiently Manage",
+    "options": [
+      "Gravity",
+      "Sunlight",
+      "Tides",
+      "Natural Resources"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Reduce",
+    "options": [
+      "Global Food Waste",
+      "Diet",
+      "Renewable Resources",
+      "Aforestation"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Unsustainable",
+    "options": [
+      "Reduce",
+      "Waste",
+      "Reuse",
+      "Recycle"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Reduce",
+    "options": [
+      "Grass",
+      "Shopping",
+      "Income Inequalities",
+      "Gaming"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Equal Opportunity",
+    "options": [
+      "Reservation",
+      "Bribery",
+      "Corruption",
+      "No Discrimination"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Child Labour",
+    "options": [
+      "Prohibited",
+      "Opinion",
+      "Choice",
+      "Optional"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Increase Use of",
+    "options": [
+      "Coal",
+      "Renewable Energy",
+      "Petrol",
+      "Gasoline"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Safe & Affordable",
+    "options": [
+      "Pizzas",
+      "Games",
+      "Drinking Water",
+      "Fuel"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Efficiently Use",
+    "options": [
+      "Computer",
+      "Hydro Energy",
+      "Solar Energy",
+      "Water"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Necessity",
+    "options": [
+      "Quality Education",
+      "Fun & Games",
+      "Picnic",
+      "Pizza"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Eradicate",
+    "options": [
+      "Wild Grass",
+      "Extreme Poverty",
+      "Insects",
+      "Poisonous Plants"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Job",
+    "options": [
+      "Overalls",
+      "Blueberry",
+      "Fireman",
+      "Lamp"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "School",
+    "options": [
+      "Dog",
+      "Scarf",
+      "Rat",
+      "Book"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Jewelry",
+    "options": [
+      "Necklace",
+      "Metal",
+      "Robin",
+      "Cranberry"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Store",
+    "options": [
+      "Red",
+      "Grocery",
+      "Mango",
+      "Bowl"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Vehicle",
+    "options": [
+      "Jeans",
+      "Jelly",
+      "Bike",
+      "House"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Winter",
+    "options": [
+      "Candy",
+      "Berry",
+      "House",
+      "Sweater"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Boat",
+    "options": [
+      "Sail",
+      "Lime",
+      "Set",
+      "Mile"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Vacation",
+    "options": [
+      "Green",
+      "Hotel",
+      "Hole",
+      "Melon"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Bird",
+    "options": [
+      "Blanket",
+      "Pillow",
+      "Fly",
+      "Laptop"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Instrument",
+    "options": [
+      "Hero",
+      "Hair",
+      "Exit",
+      "Guitar"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Girls",
+    "options": [
+      "Dolls",
+      "Turkey",
+      "Spring",
+      "School"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Flying Animal",
+    "options": [
+      "Tank",
+      "Bat",
+      "Dog",
+      "Baby"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Computer",
+    "options": [
+      "Truck",
+      "Stork",
+      "Internet",
+      "Kitchen"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Tree",
+    "options": [
+      "Ocean",
+      "Pigeon",
+      "Road",
+      "Oak"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Sports",
+    "options": [
+      "Soccer",
+      "Baker",
+      "Hoop",
+      "Goose"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Winter",
+    "options": [
+      "Blue",
+      "Igloo",
+      "Ocean",
+      "Ostrich"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Holiday",
+    "options": [
+      "Exit",
+      "Elf",
+      "Easter",
+      "Elm"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Talk",
+    "options": [
+      "Porch",
+      "Peacock",
+      "Purple",
+      "Phone"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Water",
+    "options": [
+      "Boat",
+      "Fairy",
+      "Can",
+      "Coat"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Cleaning",
+    "options": [
+      "Pineapple",
+      "Broom",
+      "Cardboard",
+      "Shoestring"
+    ],
+    "correctOption": 2
+  },
+  {
+    "category": "Meals",
+    "options": [
+      "Dove",
+      "Park",
+      "Dinner",
+      "Digger"
+    ],
+    "correctOption": 3
+  },
+  {
+    "category": "Frozen",
+    "options": [
+      "Duck",
+      "Fox",
+      "Jam",
+      "Ice Cream"
+    ],
+    "correctOption": 4
+  },
+  {
+    "category": "Body Part",
+    "options": [
+      "Nose",
+      "Parrot",
+      "Opera",
+      "Song"
+    ],
+    "correctOption": 1
+  },
+  {
+    "category": "Heat",
+    "options": [
+      "Pet",
+      "Fire",
+      "Coconut",
+      "Top"
+    ],
+    "correctOption": 2
+  }
+]

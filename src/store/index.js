@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import player from './player/reducer'
-import city from './city/reducer'
+import highScore from './highScore/reducer'
 import thunk from 'redux-thunk'
 
 const persistConfig = {
@@ -12,7 +12,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   player,
-  city
+  highScore
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

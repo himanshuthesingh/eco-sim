@@ -1,0 +1,157 @@
+.brainy-quest {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url('../../assets/quest-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bq-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: aquamarine;
+}
+
+.bq-heading {
+  font-size: 4rem;
+  font-family: 'Peace Sans';
+  width: 10rem;
+  height: 8rem;
+  padding: 0 1.2rem;
+  text-shadow: 0 0 0.5rem aquamarine;
+  -webkit-text-stroke: 2px #9e1f63;
+}
+
+.bq-score {
+  font-size: 2rem;
+  font-family: 'scoreboard';
+  padding: 1rem 0;
+}
+
+.bq-life {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.bq-life-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0 0.2rem;
+  filter: drop-shadow(0px 0px 4px #ff0000);
+}
+
+.bq-instruction {
+  font-family: 'Qanelas Bold';
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: aquamarine;
+}
+
+.bq-ques {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-family: 'Linotte-SemiBold';
+  color: aquamarine;
+  text-shadow: 2px 2px 1px black;
+}
+
+.bq-ques-blank {
+  font-family: 'Linotte-Bold';
+  background-image: linear-gradient(to top, #7bc393 0%, #31b7c2 100%);
+  color: black;
+  padding: 0.5rem 0.8rem;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  text-shadow: none;
+}
+
+.bq-answer {
+  text-decoration: underline;
+}
+
+.bq-options {
+  font-family: 'Linotte-Bold';
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  margin: 1rem 0;
+}
+
+.bq-option {
+  min-width: 4rem;
+  padding: 0.5rem;
+  background-image: linear-gradient(to top, #7bc393 0%, #31b7c2 100%);
+  transition: all 0.15s;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #387a4e;
+  cursor: pointer;
+}
+
+.bq-option:hover {
+  background-image: linear-gradient(to top, #31b7c2 0%, #7bc393 100%);
+  transform: scale(1.125);
+}
+
+.bq-option:active {
+  background-image: linear-gradient(to top, #2999a3 0%, #50af70 100%);
+  box-shadow: 0 5px #20462d;
+  transform: translateY(4px);
+  transform: scale(1.025);
+}
+
+.bq-option-disabled {
+  pointer-events: none;
+}
+
+.bq-next-btn {
+  appearance: none;
+  border-radius: 2rem;
+  border-style: none;
+  background-image: linear-gradient(to bottom, #ed1c24 0%, #00aeef 100%);
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Qanelas Bold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin-top: 2rem;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.bq-next-btn:hover {
+  transform: scale(1.125);
+}
+
+.bq-next-btn:active {
+  transform: scale(1.025);
+}
+
+.bq-next-btn:disabled {
+  display: none;
+}

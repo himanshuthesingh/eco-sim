@@ -1,35 +1,119 @@
+.welcome-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to top, #543728 0%, #658715 100%);
+}
+
 .welcomePage {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 20vh;
-  margin-bottom: 25vh;
-  height: 55vh;
+  height: 100vh;
+  z-index: 1;
 }
 
-.primary-heading {
-  font-weight: bold;
-  font-family: "georgia", serif;
-  font-size: xxx-large;
+.welcome-text {
+  font-family: 'Qanelas Bold';
+  font-size: 2.2rem;
+  color: #aee038;
 }
 
-.secondary-heading {
-  font-weight: normal;
-  font-family: monospace;
-  font-size: x-large;
-  padding-top: 6vh;
+.welcome-title {
+  font-family: 'Peace Sans';
+  font-size: 8rem;
+  color: #fff;
+  background-clip: text;
+  background-image: url('../../assets/eco.jpg');
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px #a5dd22;
 }
 
-.input {
-  font-size: x-large;
-  font-family: cursive;
+.welcome-input {
+  font-size: 1.5rem;
+  font-family: 'Linotte-SemiBold';
   text-align: center;
+  margin-top: 6vh;
   margin-bottom: 6vh;
+  padding: 0.5rem;
+  border: 2px solid rgba(244, 244, 215, .5);
+  color: rgba(244, 244, 215, 1);
+  border-radius: 0.25rem;
+  background: transparent;
+}
+
+.welcome-input:focus {
+  outline: none;
+  border-color: rgba(244, 244, 215, 1);
+}
+
+.welcome-input::-webkit-input-placeholder {
+  color: rgba(244, 244, 215, .5);
+}
+
+.welcome-input:-moz-placeholder {
+  color: rgb(244, 244, 215);
+  opacity: 0.5;
+}
+
+.welcome-input::-moz-placeholder {
+  color: rgb(244, 244, 215);
+  opacity: 0.5;
+}
+
+.welcome-input:-ms-input-placeholder {
+  color: rgba(244, 244, 215, .5);
+}
+
+.welcome-input::-ms-input-placeholder {
+  color: rgba(244, 244, 215, .5);
+}
+
+.welcome-input::placeholder {
+  color: rgba(244, 244, 215, .5);
 }
 
 .submit {
-  font-size: xx-large;
-  font-family: fantasy;
-  width: 15vw;
+  appearance: none;
+  border-radius: 2rem;
+  border-style: none;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Qanelas Bold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.submit:hover {
+  transform: scale(1.125);
+}
+
+.submit:active {
+  transform: scale(1.025);
+}
+
+.submit:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
 }

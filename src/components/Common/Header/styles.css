@@ -3,60 +3,44 @@
   height: 8vh;
   min-height: 45px;
   max-height: 55px;
+  overflow-x: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: burlywood;
+  background-image: linear-gradient(to top, #543728 0%, #658715 100%);
 }
 
-.container {
-  padding: 5px;
+.header-item {
+  padding: 0rem 0.5rem;
   display: flex;
   align-items: center;
   flex-direction: row;
 }
 
-.icon {
-  width: 30px;
-  height: 30px;
-  color: black;
+.header-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #84b01c;
 }
 
-.label {
-  font-size: large;
-  font-family: serif;
-  padding-left: 5px;
+.header-name {
+  font-size: 2rem;
+  font-family: 'Improvie';
+  padding-left: 0.2rem;
+  color: #84b01c;
 }
 
-.help {
-  padding: 5px;
-  width: 30px;
-  height: 30px;
-  color: black;
-}
-
-.help:hover {
-  width: 26px;
-  height: 26px;
-  padding: 7px;
-  color: darkred;
+.header-btn {
+  padding: 0rem 0.5rem;
   cursor: pointer;
+  transition: all .15s;
 }
 
-.header-back-button-container {
-  position: absolute;
-  right: 1rem;
-  top: 4rem;
+.header-btn:hover {
+  transform: scale(1.125);
 }
 
-.header-back-button {
-  font-weight: 900;
-  font-family: monospace;
-  font-size: 1.2rem;
-  padding: 0.25rem;
-}
-
-.back-hidden {
-  display: none;
+.header-btn:active {
+  transform: scale(1.025);
 }

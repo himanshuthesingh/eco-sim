@@ -1,0 +1,103 @@
+.city-backdrop {
+  height: 92vh;
+  background-image: url('../../assets/city-bg.gif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.city-heading {
+  font-size: 6rem;
+  font-family: 'Peace Sans';
+  margin: 1rem;
+  background-image: linear-gradient(to top, #111111 0%, #006663 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.city-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  background: rgba(95, 158, 160, 0.8);
+  padding: 1rem;
+  border-radius: 6rem;
+}
+
+.city-objective {
+  font-family: 'Qanelas Bold';
+  font-size: 2.5rem;
+}
+
+.city-text {
+  font-family: 'Improvie';
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.city-button {
+  appearance: none;
+  border-radius: 2rem;
+  border-style: none;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Linotte-SemiBold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.city-button:hover {
+  transform: scale(1.125);
+}
+
+.city-button:active {
+  transform: scale(1.025);
+}
+
+#cs-game-engine {
+  height: 92vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-image: url('../../assets/city-bg.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+.cs-game-engine {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.cs-score {
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: 'scoreboard';
+  padding-top: 0.5rem;
+  color: #111111;
+  width: 100%;
+  text-align: center;
+}

@@ -8,39 +8,93 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .modal {
-  width: 70vw;
-  background: white;
-  border: 1px solid #ccc;
   box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to top, #543728 0%, #658715 100%);
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2.5rem;
+}
+
+#modal-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-container {
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .modal-heading {
+  z-index: 4;
   padding: 0.75rem;
-  font-weight: bold;
-  font-size: xx-large;
-  font-family: serif;
+  font-family: 'Qanelas Bold';
+  font-size: 2.2rem;
+  color: #aee038;
 }
 
 .modal-content {
-  padding: 0.5rem;
-  font-size: x-large;
-  font-family: cursive;
+  z-index: 4;
+  padding: 0.5rem 8rem;
+  font-size: 1.5rem;
+  font-family: 'Linotte-Regular';
   text-align: center;
+  color: #290a0a
 }
 
-.modal-close {
-  width: 10%;
+.modal-content p {
+  margin: 1rem 0;
+}
+
+.modal-btn-group {
+  z-index: 4;
   padding: 0.5rem;
 }
 
-.modal-close-button {
-  width: 100%;
-  font-size:  x-large;
-  font-family: fantasy;
+.modal-button {
+  appearance: none;
+  border-radius: 2rem;
+  border-style: none;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Qanelas Bold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0 1rem;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.modal-button:hover {
+  transform: scale(1.125);
+}
+
+.modal-button:active {
+  transform: scale(1.025);
+}
+
+.modal-button:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
 }

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import Particles from 'react-tsparticles'
+import { loadSlim } from 'tsparticles-slim'
 import { setName } from '../../store/player/actions'
+import options from './particlesConfig'
 import './styles.css'
 
 function Welcome() {
@@ -10,24 +13,31 @@ function Welcome() {
   const dispatch = useDispatch()
   let navigate = useNavigate()
 
-  useEffect(() => {
-    if (player.name !== '') {
-      navigate('/Home')
-    }
-  },[])
-
+  const particlesInit = useCallback(async engine => {
+    await loadSlim(engine)
+  }, [])
+  
   const handleSubmit = (event) => {
     event.preventDefault()
     dispatch(setName(playerName))
-    navigate('/Home')
+    navigate('/Menu')
   }
 
   return (
-    <div className='welcomePage'>
-      <div className='primary-heading'>Welcome to Eco-Sim</div>
-      <div className='secondary-heading'>Please Enter Your Name</div>
-      <input className='input' value={playerName} onChange={(event) => setPlayer(event.target.value)} />
-      <button className='submit' type='submit' onClick={handleSubmit} disabled={playerName === ''}>Play</button>
+    <div className='welcome-bg'>
+      <Particles id='welcome-particles' loaded={() => {}} init={particlesInit} options={options} />
+      <div className='welcomePage'>
+        <div className='welcome-text'>Welcome To</div>
+        <div className='welcome-title'>Eco-Sim</div>
+        <input 
+          className='welcome-input' 
+          value={playerName} 
+          placeholder='Enter Your Name'
+          onChange={(event) => setPlayer(event.target.value)} 
+          spellCheck={false}
+        />
+        <button className='submit' type='submit' onClick={handleSubmit} disabled={playerName === ''}>Play</button>
+      </div>
     </div>
   )
 }
