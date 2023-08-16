@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { GameEngine } from 'react-game-engine'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { GameEngine } from 'react-game-engine'
+import ReactSound from 'react-sound'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
 import data from '../../data/relatedWords.json'
 import Systems from './systems'
 import Entities from './entities'
 import { setRelatedWordsHighScore } from '../../store/highScore/actions'
+import { setScreen } from '../../store/screen/actions'
+import GunFireSound from '../../assets/sounds/Gun_Fire.mp3'
+import ExplosionSound from '../../assets/sounds/Explosion.mp3'
+import CorrectSound from '../../assets/sounds/Correct_Answer.mp3'
+import WrongSound from '../../assets/sounds/Wrong_Answer.mp3'
 import './styles.css'
 
 const aboutContent = <>
@@ -51,6 +57,11 @@ function RelateTheWords() {
   const [lives, setLives] = useState(5)
   const [running, setRunning] = useState(true)
   const [gameOver, setGameOver] = useState(false)
+  const [gunFireSound, setGunFireSound] = useState({ status: 'STOPPED', pos: 0 })
+  const [explosionSound, setExplosionSound] = useState({ status: 'STOPPED', enemy: 0 })
+  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
+  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
+
   const highScore = useSelector((state) => state.highScore)
   const dispatch = useDispatch()
   let navigate = useNavigate()
@@ -62,6 +73,7 @@ function RelateTheWords() {
   }
 
   useEffect(() => {
+    dispatch(setScreen('RelateTheWords'))
     fetchData()
   }, [])
 
@@ -115,12 +127,14 @@ function RelateTheWords() {
   const onEvent = (event) => {
     if (event.type === 'enemyHit') {
       if (event.payload.option === correctOption) {
+        setCorrectSound({ status: 'PLAYING' })
         gameEngine.dispatch({ type: 'hit-check', success: true })
       }
       else {
         if (lives > 1) {
           setLives(prevState => prevState - 1)
         }
+        setWrongSound({ status: 'PLAYING' })
         gameEngine.dispatch({ type: 'hit-check', success: false, lives })
       }
     }
@@ -153,6 +167,19 @@ function RelateTheWords() {
       setShowModal(true)
       setGameOver(true)
     }
+
+    if (event.type === 'playGunFireSound') {
+      setGunFireSound({ status: 'PLAYING', pos: 0 })
+      setTimeout(() => {
+        setGunFireSound({ status: 'STOPPED', pos: 0 })
+      }, 1000)
+    }
+
+    if (event.type === 'playExplosionSound') {
+      if (explosionSound.enemy !== event.enemy) {
+        setExplosionSound({ status: 'PLAYING', enemy: event.enemy })
+      }
+    }
   }
 
   const handleGoBack = () => {
@@ -161,6 +188,10 @@ function RelateTheWords() {
 
   return (
     <div>
+      <ReactSound url={GunFireSound} playStatus={gunFireSound.status} playFromPosition={gunFireSound.pos} volume={50} autoLoad />
+      <ReactSound url={ExplosionSound} playStatus={explosionSound.status} volume={50} onFinishedPlaying={() => setExplosionSound({ status: 'STOPPED', enemy: 0 })} autoLoad />
+      <ReactSound url={CorrectSound} playStatus={correctSound.status} volume={50} onFinishedPlaying={() => setCorrectSound({ status: 'STOPPED' })} autoLoad />
+      <ReactSound url={WrongSound} playStatus={wrongSound.status} volume={50} onFinishedPlaying={() => setWrongSound({ status: 'STOPPED' })} autoLoad />
       <Modal
         title={modalTitle}
         isOpen={showModal}

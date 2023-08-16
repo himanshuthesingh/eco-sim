@@ -10,7 +10,7 @@ const MoveObstacles = (entities, { dispatch }) => {
   if (obstacles.length > 0) {
     obstacles.forEach((obstacle) => {
       obstacleEntity = entities[obstacle]
-      const newX = obstacleEntity.body.position.x - Constants.OBSTACLE_STEP
+      const newX = obstacleEntity.body.position.x - entities.physics.speed.step
       Matter.Body.setPosition(obstacleEntity.body, { x: newX, y: obstacleEntity.body.position.y })
 
       if (newX < entities.Player.body.position.x ) {

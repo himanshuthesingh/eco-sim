@@ -20,7 +20,7 @@ export default restart => {
   const Constants = getConstants()
 
   return {
-    physics: {engine: engine, world: world, pause: true},
+    physics: { engine: engine, world: world, pause: true, speed: { step: 2, delay: 1800, lastUpdate: 0 }},
     Player: Player(
       world,
       'pink',

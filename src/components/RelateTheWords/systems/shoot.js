@@ -7,9 +7,10 @@ const bulletSize = {
   height: BULLET_HEIGHT
 }
 
-const Shoot = (entities, { window, input }) => {
+const Shoot = (entities, { window, input, dispatch }) => {
   const { payload } = input.find(x => x.name === 'onClick') || {}
   if (payload && !entities.Player.dontShoot) {
+    dispatch({ type: 'playGunFireSound' })
 
     var player = window.document.getElementById('rw-player')
     if (player) {

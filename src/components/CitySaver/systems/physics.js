@@ -10,7 +10,19 @@ const Physics = (entities, { time, dispatch }) => {
     })
   }
 
-  return entities
+  if (entities.physics.speed.lastUpdate === 0) {
+    entities.physics.speed.lastUpdate = time.current
+  }
+  else if (entities.physics.speed.step < 5) {
+    let timeDiff = time.current - entities.physics.speed.lastUpdate
+    if (timeDiff > 600) {
+      entities.physics.speed.lastUpdate = time.current
+      entities.physics.speed.step += 0.03
+      entities.physics.speed.delay -= 10
+    }
+  }
+
+  return { ...entities }
 }
 
 export default Physics

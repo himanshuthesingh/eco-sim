@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { GameEngine } from 'react-game-engine'
+import ReactSound from 'react-sound'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
 import Systems from './systems'
 import Entities from './entities'
 import data from '../../data/citySaver.json'
 import { setCitySaverHighScore } from '../../store/highScore/actions'
+import { setScreen } from '../../store/screen/actions'
+import ExplosionSound from '../../assets/sounds/Explosion.mp3'
 import './styles.css'
 
 const aboutContent = <>
@@ -49,6 +52,7 @@ function CitySaver() {
   const [gameOver, setGameOver] = useState(false)
   const [index, setIndex] = useState(0)
   const [objectives, setObjectives] = useState(data)
+  const [explosionSound, setExplosionSound] = useState({ status: 'STOPPED' })
   const highScore = useSelector((state) => state.highScore)
   const dispatch = useDispatch()
   let navigate = useNavigate()
@@ -60,6 +64,7 @@ function CitySaver() {
   }
 
   useEffect(() => {
+    dispatch(setScreen('CitySaver'))
     fetchData()
   }, [])
 
@@ -96,6 +101,7 @@ function CitySaver() {
 
   const onEvent = (event) => {
     if (event.type === 'gameOver') {
+      setExplosionSound({ status: 'PLAYING' })
       setRunning(false)
       if (score > highScore.citySaver) {
         setModalContent(highestScoreText(score))
@@ -123,6 +129,7 @@ function CitySaver() {
 
   return (
     <div>
+      <ReactSound url={ExplosionSound} playStatus={explosionSound.status} volume={20} onFinishedPlaying={() => setExplosionSound({ status: 'STOPPED' })} autoLoad />
       <Modal
         title={modalTitle}
         isOpen={showModal}

@@ -33,12 +33,16 @@ function animateScript(payload, dispatch) {
   }, interval)
 }
 
-const Hit = (entities, { events, dispatch, window }) => {
+const Hit = (entities, { events, dispatch, window, time }) => {
   const hitEvents = events.filter(event => event.type === 'hit')
   if (hitEvents.length > 0) {
     const hitEvent = hitEvents[0]
-
     const enemy = entities[`Enemy_${hitEvent.payload.option}`]
+
+    if(!enemy.dead) {
+      dispatch({ type: 'playExplosionSound', enemy: hitEvent.payload.option })
+    }
+
     enemy.dead = true
     entities[`Enemy_${hitEvent.payload.option}`] = enemy
 
@@ -61,25 +65,28 @@ const Hit = (entities, { events, dispatch, window }) => {
     const player = document.getElementById('rw-player')
     const gameScreen = document.getElementById('rw-game-engine')
 
+    // left: ${player.offsetLeft + (player.offsetWidth / 2) - (gameScreen.offsetWidth * 0.059829)}px;
+    // top: ${player.offsetTop + (player.offsetHeight / 2) - (gameScreen.offsetHeight * 0.389105)}px;
+
     const infoText = document.createElement('div')
     infoText.innerHTML = hitSuccess ? 'CORRECT' : 'WRONG'
     infoText.style.cssText = `
       position: absolute;
-      left: ${player.offsetLeft + (player.offsetWidth / 2) - (gameScreen.offsetWidth * 0.059829)}px;
-      top: ${player.offsetTop + (player.offsetHeight / 2) - (gameScreen.offsetHeight * 0.389105)}px;
+      left: ${document.body.offsetWidth / 2}px;
+      top: ${document.body.offsetHeight / 2}px;
       transform: translate(-50%, -50%);
       z-index: 100;
       font-size: 3rem;
       font-family: 'Peace Sans';
-      color: #3d1010;
-      animation: wrongAnimation 0.8s ease 0s 1 normal forwards;
+      color: ${hitSuccess ? '#5c9900;' : '#3d1010;'}
+      animation: labelAnimation 1.5s ease 0s 1 normal forwards;
     `
     const css = window.document.styleSheets[0]
     css.insertRule(`
-      @keyframes wrongAnimation {
+      @keyframes labelAnimation {
         0% { opacity: 0; transform: scale(0.2); }
-        70% { opacity: 1; transform: scale(1); }
-        100% { opacity: 0; transform: scale(1); }
+        70% { opacity: 1; transform: scale(2); }
+        100% { opacity: 0; transform: scale(1.5); }
       }
     `, css.cssRules.length)
 
@@ -94,7 +101,7 @@ const Hit = (entities, { events, dispatch, window }) => {
       else if (hitCheckEvents[0].lives === 1) {
         dispatch({ type: 'game-over' })
       }
-    }, 800)
+    }, 1500)
   }
 
   const deleteEnemyEvents = events.filter(event => event.type === 'deleteEnemy')

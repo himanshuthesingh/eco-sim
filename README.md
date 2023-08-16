@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Eco-Sim
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eco-Sim is a collection of 3 educational games that will impart knowledge on Children's Rights and Sustainable Development Goals.
 
-## Available Scripts
+It is built on React JS framework and utilizes react-game-engine along with Matter.js to build game logic and handle physics.
 
-In the project directory, you can run:
+This game also uses React Redux to store player's name and their high scores in respective games. And persist them to save their score between sessions.
 
-### `npm start`
+## 1. Relate The Words
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Relate The Words is a word game which is depicted using tanks. From 4 options the player has to choose the one which most relates to the given category.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In the game, player is depicted as a tank and surrounded by 4 other tanks which refers to the game's 4 options. 
 
-### `npm test`
+The player would have to shoot at the correct option/tank to score 1 point and shooting at the wrong one will result in loss of 1 life. There are total 5 lives available in the game.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This game helps in improving children's word association capabitlity while also imparting knowledge on Sustainablity Development Goals.
 
-### `npm run build`
+## 2. Brainy Quest
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Brainy Quest is a quiz based game. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Here the player will be provided with an incomplete sentence, which they will have to complete by choosing the correct option from given 4 options.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Selecting the correct option results in scoring 1 point while the wrong option will cost the player 1 life. There are total 5 lives available in the game.
 
-### `npm run eject`
+The motto of this game is to impart knowledge on Children's Rights.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 3. City Saver
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+City Saver is a fun oriented game. Where the player will be flying a supply helicopter through incoming air traffic.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Overcoming the obstacles will score 1 point per obstacle while crashing the helicopter would result in Game Over.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The essence of this game is to teach children about Sustainability Development Goals by providing them with different objectives at the start of each game.

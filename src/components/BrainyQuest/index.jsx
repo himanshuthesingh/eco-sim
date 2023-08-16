@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import ReactSound from 'react-sound'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
 import data from '../../data/brainyQuest.json'
 import { setBrainyQuestHighScore } from '../../store/highScore/actions'
+import { setScreen } from '../../store/screen/actions'
+import CorrectSound from '../../assets/sounds/Correct_Answer.mp3'
+import WrongSound from '../../assets/sounds/Wrong_Answer.mp3'
 import './styles.css'
 
 const aboutContent = <>
@@ -43,6 +47,8 @@ function BrainyQuest() {
   const [score, setScore] = useState(0)
   const [lives, setLives] = useState(5)
   const [gameOver, setGameOver] = useState(false)
+  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
+  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
   const highScore = useSelector((state) => state.highScore)
   const dispatch = useDispatch()
   let navigate = useNavigate()
@@ -54,6 +60,7 @@ function BrainyQuest() {
   }
 
   useEffect(() => {
+    dispatch(setScreen('BrainyQuest'))
     fetchData()
   }, [])
 
@@ -75,10 +82,12 @@ function BrainyQuest() {
 
   const handleOptionClick = (option) => {
     if (option === correctOption) {
+      setCorrectSound({ status: 'PLAYING' })
       setScore(prevState => prevState + 1)
       setAnswered(true)
     }
     else {
+      setWrongSound({ status: 'PLAYING' })
       if (lives === 1) {
         setModalTitle('Game Over !!')
         if (score > highScore.brainyQuest) {
@@ -145,11 +154,14 @@ function BrainyQuest() {
   }
 
   const handleGoBack = () => {
+    dispatch()
     navigate(-1)
   }
 
   return (
     <div>
+      <ReactSound url={CorrectSound} playStatus={correctSound.status} volume={30} onFinishedPlaying={() => setCorrectSound({ status: 'STOPPED' })} autoLoad />
+      <ReactSound url={WrongSound} playStatus={wrongSound.status} volume={50} onFinishedPlaying={() => setWrongSound({ status: 'STOPPED' })} autoLoad />
       <Modal
         title={modalTitle}
         isOpen={showModal}

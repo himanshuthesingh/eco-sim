@@ -31,7 +31,7 @@ const GenerateObstacle = (entities, { time, dispatch }) => {
       const lastIndex = Math.max(...indexes)
       const timeDelta = time.current - entities[`Obstacle_${lastIndex}`].createdOn
 
-      if (timeDelta > Constants.OBSTACLE_SPEED) {
+      if (timeDelta > entities.physics.speed.delay) {
         obsNum = getRandom(1,7) - 1
         const newIndex = lastIndex + 1
         const type = entities[`Obstacle_${lastIndex}`].type === 'top' ? 'bottom' : 'top'

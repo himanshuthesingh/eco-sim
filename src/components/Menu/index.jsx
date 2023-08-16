@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { Bounce } from 'react-awesome-reveal'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
+import { setScreen } from '../../store/screen/actions'
 import './styles.css'
 
 function Menu() {
-  let navigate = useNavigate()
   const [showHelp, setShowHelp] = useState(false)
+  const screen = useSelector((state) => state.screen)
+  const dispatch = useDispatch()
+  let navigate = useNavigate()
+
+  useEffect(() => {
+    if (screen !== 'Home') {
+      dispatch(setScreen('Home'))
+    }
+  }, [])
 
   return (
     <div>
