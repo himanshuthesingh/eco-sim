@@ -25,7 +25,7 @@ function Bullet(props) {
   )
 }
 
-export default (world, pos, size, angle, index, step) => {
+export default (world, pos, size, angle, index, step, updatedOn) => {
   const initialBullet = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -43,6 +43,7 @@ export default (world, pos, size, angle, index, step) => {
     degree: angle,
     index: index,
     step: step,
+    updatedOn,
     renderer: <Bullet />,
   };
 };

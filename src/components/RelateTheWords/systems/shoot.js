@@ -7,7 +7,7 @@ const bulletSize = {
   height: BULLET_HEIGHT
 }
 
-const Shoot = (entities, { window, input, dispatch }) => {
+const Shoot = (entities, { window, input, dispatch, time }) => {
   const { payload } = input.find(x => x.name === 'onClick') || {}
   if (payload && !entities.Player.dontShoot) {
     dispatch({ type: 'playGunFireSound' })
@@ -37,7 +37,8 @@ const Shoot = (entities, { window, input, dispatch }) => {
           bulletSize,
           degree,
           1,
-          { x: stepX, y: stepY }
+          { x: stepX, y: stepY },
+          time.current
         )
         Matter.Detector.create({
           bodies: [ entities.Enemy_1, entities.Enemy_2,entities.Enemy_3, entities.Enemy_4, entities['Bullet_1']]
@@ -53,7 +54,8 @@ const Shoot = (entities, { window, input, dispatch }) => {
           bulletSize,
           degree,
           newIndex,
-          { x: stepX, y: stepY }
+          { x: stepX, y: stepY },
+          time.current
         )
         Matter.Detector.create({
           bodies: [ entities.Enemy_1, entities.Enemy_2,entities.Enemy_3, entities.Enemy_4, entities[`Bullet_${newIndex}`]]

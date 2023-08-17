@@ -44,7 +44,8 @@ export default (world, type, position, size, index, createdOn, obstacleNum) => {
 
   return {
     body: initialObstacle,
-    size, type, createdOn, obstacleNum,
+    size, type, createdOn, obstacleNum, 
+    updatedOn: createdOn,
     scored: false,
     renderer: <Obstacle />,
   }

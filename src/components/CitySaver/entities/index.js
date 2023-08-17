@@ -18,9 +18,9 @@ export default restart => {
   engine.gravity.y = 0.1
 
   const Constants = getConstants()
-
+ // 8 , 800
   return {
-    physics: { engine: engine, world: world, pause: true, speed: { step: 2, delay: 1800, lastUpdate: 0 }},
+    physics: { engine: engine, world: world, pause: true, speed: { step: 4, delay: 1800, lastUpdate: 0 }},
     Player: Player(
       world,
       'pink',
