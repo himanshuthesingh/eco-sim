@@ -25,7 +25,7 @@ function BulletRenderer(props) {
   )
 }
 
-export default Bullet = (world, pos, size, angle, index, step, updatedOn) => {
+const Bullet = (world, pos, size, angle, index, step, updatedOn) => {
   const initialBullet = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -34,8 +34,8 @@ export default Bullet = (world, pos, size, angle, index, step, updatedOn) => {
     {
       label: `Bullet_${index}`
     }
-  );
-  Matter.World.add(world, [initialBullet]);
+  )
+  Matter.World.add(world, [initialBullet])
 
   return {
     body: initialBullet,
@@ -45,5 +45,7 @@ export default Bullet = (world, pos, size, angle, index, step, updatedOn) => {
     step: step,
     updatedOn,
     renderer: <BulletRenderer />,
-  };
-};
+  }
+}
+
+export default Bullet

@@ -5,7 +5,7 @@ import { PLAYER_WIDTH, PLAYER_HEIGHT, ENEMY_WIDTH, ENEMY_HEIGHT } from '../utils
 
 Matter.Common.isElement = () => false;
 
-export default (options, restart) => {
+const entities = (options, restart) => {
   if (restart) {
     Matter.Engine.clear(restart.physics.engine);
   }
@@ -44,3 +44,5 @@ export default (options, restart) => {
     ),
   }
 }
+
+export default entities

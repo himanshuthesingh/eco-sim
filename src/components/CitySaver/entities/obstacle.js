@@ -33,7 +33,7 @@ const ObstacleRenderer = props => {
   )
 }
 
-export default Obstacle = (world, type, position, size, index, createdOn, obstacleNum) => {
+const Obstacle = (world, type, position, size, index, createdOn, obstacleNum) => {
   const initialObstacle = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -57,3 +57,5 @@ ObstacleRenderer.propTypes = {
   body: object,
   color: string,
 }
+
+export default Obstacle

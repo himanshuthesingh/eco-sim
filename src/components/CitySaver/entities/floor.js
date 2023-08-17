@@ -20,7 +20,7 @@ const FloorRenderer = props => {
   )
 }
 
-export default Floor = (world, color, position, size) => {
+const Floor = (world, color, position, size) => {
   const initialFloor = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -42,3 +42,5 @@ FloorRenderer.propTypes = {
   body: object,
   color: string,
 }
+
+export default Floor

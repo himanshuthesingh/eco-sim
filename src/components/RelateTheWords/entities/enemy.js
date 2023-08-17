@@ -70,7 +70,7 @@ function EnemyRenderer(props) {
   </>)
 }
 
-export default Enemy = (world, pos, size, angle, index, value, dead) => {
+const Enemy = (world, pos, size, angle, index, value, dead) => {
   const initialEnemy = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -92,3 +92,5 @@ export default Enemy = (world, pos, size, angle, index, value, dead) => {
     renderer: <EnemyRenderer />,
   }
 }
+
+export default Enemy

@@ -7,7 +7,7 @@ import getConstants from '../utils/constants'
 
 Matter.Common.isElement = () => false
 
-export default restart => {
+const entities = (restart) => {
   
   if (restart) {
     Matter.Engine.clear(restart.physics.engine)
@@ -41,3 +41,5 @@ export default restart => {
     )
   }
 }
+
+export default entities

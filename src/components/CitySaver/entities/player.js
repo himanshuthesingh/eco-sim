@@ -27,7 +27,7 @@ class PlayerRenderer extends Component {
   }
 }
 
-export default Player = (world, color, position, size) => {
+const Player = (world, color, position, size) => {
   const initialPlayer = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -49,3 +49,5 @@ PlayerRenderer.propTypes = {
   body: object,
   color: string,
 }
+
+export default Player

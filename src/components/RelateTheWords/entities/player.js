@@ -30,7 +30,7 @@ function PlayerRenderer(props) {
   )
 }
 
-export default Player = (world, pos, size) => {
+const Player = (world, pos, size) => {
   const initialPlayer = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -46,3 +46,5 @@ export default Player = (world, pos, size) => {
     renderer: <PlayerRenderer />,
   }
 }
+
+export default Player

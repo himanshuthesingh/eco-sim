@@ -19,7 +19,7 @@ const CeilingRenderer = props => {
   )
 }
 
-export default Ceiling = (world, color, position, size) => {
+const Ceiling = (world, color, position, size) => {
   const initialCeiling = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -41,3 +41,5 @@ CeilingRenderer.propTypes = {
   body: object,
   color: string,
 }
+
+export default Ceiling
