@@ -1,9 +1,6 @@
 import Matter from 'matter-js'
-import getConstants from '../utils/constants'
 
 const MoveObstacles = (entities, { dispatch, time }) => {
-  const Constants = getConstants()
-
   const obstacles = Object.keys(entities).filter((entity) => entity.startsWith('Obstacle_'))
   var obstacleEntity = null
   let timeDiff = 0

@@ -15,7 +15,7 @@ export default restart => {
 
   let engine = Matter.Engine.create({enableSleeping: false})
   let world = engine.world
-  engine.gravity.y = 0.1
+  engine.gravity.y = 0.25
 
   const Constants = getConstants()
  // 8 , 800

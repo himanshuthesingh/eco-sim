@@ -48,6 +48,8 @@ function App() {
       BgMusic = CsBgMusic
       volume = 70
       break
+    default:
+      break
   }
 
   const handleBgMusic = () => {

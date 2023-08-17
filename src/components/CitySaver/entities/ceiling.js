@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string } from 'prop-types'
 import Matter from 'matter-js'
 
-const Ceiling = props => {
+const CeilingRenderer = props => {
   const width = props.size.width
   const height = props.size.height
 
@@ -19,7 +19,7 @@ const Ceiling = props => {
   )
 }
 
-export default (world, color, position, size) => {
+export default Ceiling = (world, color, position, size) => {
   const initialCeiling = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -32,11 +32,11 @@ export default (world, color, position, size) => {
   return {
     body: initialCeiling,
     size, color,
-    renderer: <Ceiling />,
+    renderer: <CeilingRenderer />,
   }
 }
 
-Ceiling.propTypes = {
+CeilingRenderer.propTypes = {
   size: object,
   body: object,
   color: string,

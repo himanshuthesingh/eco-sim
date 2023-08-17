@@ -17,7 +17,6 @@ const MoveBullets = (entities, { window, time }) => {
         
         stepX = (timeDiff / 16) * bulletEntity.step.x
         stepY = (timeDiff / 16) * bulletEntity.step.y
-        console.log(timeDiff)
 
         const newX = bulletEntity.body.position.x + stepX
         const newY = bulletEntity.body.position.y + stepY

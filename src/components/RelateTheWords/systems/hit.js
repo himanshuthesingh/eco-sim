@@ -62,11 +62,6 @@ const Hit = (entities, { events, dispatch, window, time }) => {
   const hitCheckEvents = events.filter(event => event.type === 'hit-check')
   if (hitCheckEvents.length > 0) {
     const hitSuccess = hitCheckEvents[0].success
-    const player = document.getElementById('rw-player')
-    const gameScreen = document.getElementById('rw-game-engine')
-
-    // left: ${player.offsetLeft + (player.offsetWidth / 2) - (gameScreen.offsetWidth * 0.059829)}px;
-    // top: ${player.offsetTop + (player.offsetHeight / 2) - (gameScreen.offsetHeight * 0.389105)}px;
 
     const infoText = document.createElement('div')
     infoText.innerHTML = hitSuccess ? 'CORRECT' : 'WRONG'

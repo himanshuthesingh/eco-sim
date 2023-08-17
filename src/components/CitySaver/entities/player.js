@@ -4,11 +4,7 @@ import Matter from 'matter-js'
 
 import playerImg from '../../../assets/helicopter.gif'
 
-class Player extends Component {
-  constructor(props) {
-    super(props)
-  }
-
+class PlayerRenderer extends Component {
   render() {
     const width = this.props.size.width
     const height = this.props.size.height
@@ -31,7 +27,7 @@ class Player extends Component {
   }
 }
 
-export default (world, color, position, size) => {
+export default Player = (world, color, position, size) => {
   const initialPlayer = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -44,11 +40,11 @@ export default (world, color, position, size) => {
   return {
     body: initialPlayer,
     size, color,
-    renderer: <Player />,
+    renderer: <PlayerRenderer />,
   }
 }
 
-Player.propTypes = {
+PlayerRenderer.propTypes = {
   size: object,
   body: object,
   color: string,

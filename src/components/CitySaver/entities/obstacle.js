@@ -10,7 +10,7 @@ import obstacleImg5 from '../../../assets/obstacle-5.gif'
 import obstacleImg6 from '../../../assets/obstacle-6.gif'
 import obstacleImg7 from '../../../assets/obstacle-7.gif'
 
-const Obstacle = props => {
+const ObstacleRenderer = props => {
   const width = props.size.width
   const height = props.size.height
   const x = props.body.position.x - width / 2
@@ -28,11 +28,12 @@ const Obstacle = props => {
         transform: props.obstacleNum === 7 ? 'rotate(-141deg)' : 'rotate(0deg)'
       }}
       src={obstacleImages[props.obstacleNum-1]}
+      alt={`Obstacle_${props.obstacleNum}`}
     />
   )
 }
 
-export default (world, type, position, size, index, createdOn, obstacleNum) => {
+export default Obstacle = (world, type, position, size, index, createdOn, obstacleNum) => {
   const initialObstacle = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -47,11 +48,11 @@ export default (world, type, position, size, index, createdOn, obstacleNum) => {
     size, type, createdOn, obstacleNum, 
     updatedOn: createdOn,
     scored: false,
-    renderer: <Obstacle />,
+    renderer: <ObstacleRenderer />,
   }
 }
 
-Obstacle.propTypes = {
+ObstacleRenderer.propTypes = {
   size: object,
   body: object,
   color: string,

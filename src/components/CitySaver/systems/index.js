@@ -3,4 +3,4 @@ import Player from './player'
 import GenerateObstacle from './generateObstacle'
 import MoveObstacles from './moveObstacles'
 
-export default [Physics, Player, GenerateObstacle, MoveObstacles]
+export default Systems = [Physics, Player, GenerateObstacle, MoveObstacles]

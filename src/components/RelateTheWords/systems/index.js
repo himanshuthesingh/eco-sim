@@ -6,4 +6,4 @@ import MoveBullets from './moveBullets'
 import Hit from './hit'
 import Cleanup from './cleanup'
 
-export default [Physics, Loader, Aim, Shoot, MoveBullets, Hit, Cleanup]
+export default Systems = [Physics, Loader, Aim, Shoot, MoveBullets, Hit, Cleanup]

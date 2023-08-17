@@ -2,7 +2,7 @@ import React from 'react'
 import Matter from 'matter-js'
 import BulletImage from '../../../assets/bullet.png'
 
-function Bullet(props) {
+function BulletRenderer(props) {
   const width = props.size[0]
   const height = props.size[1]
   const x = props.body.position.x - width / 2
@@ -25,7 +25,7 @@ function Bullet(props) {
   )
 }
 
-export default (world, pos, size, angle, index, step, updatedOn) => {
+export default Bullet = (world, pos, size, angle, index, step, updatedOn) => {
   const initialBullet = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -44,6 +44,6 @@ export default (world, pos, size, angle, index, step, updatedOn) => {
     index: index,
     step: step,
     updatedOn,
-    renderer: <Bullet />,
+    renderer: <BulletRenderer />,
   };
 };

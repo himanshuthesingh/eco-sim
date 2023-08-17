@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string } from 'prop-types'
 import Matter from 'matter-js'
 
-const Floor = props => {
+const FloorRenderer = props => {
   const width = props.size.width
   const height = props.size.height
   const y = props.body.position.y - height / 2
@@ -20,7 +20,7 @@ const Floor = props => {
   )
 }
 
-export default (world, color, position, size) => {
+export default Floor = (world, color, position, size) => {
   const initialFloor = Matter.Bodies.rectangle(
     position.x,
     position.y,
@@ -33,11 +33,11 @@ export default (world, color, position, size) => {
   return {
     body: initialFloor,
     size, color,
-    renderer: <Floor />,
+    renderer: <FloorRenderer />,
   }
 }
 
-Floor.propTypes = {
+FloorRenderer.propTypes = {
   size: object,
   body: object,
   color: string,

@@ -4,7 +4,7 @@ import Tank from '../../../assets/tank-enemy.png'
 import ExplosionSprite from '../../../assets/explosion.png'
 import '../styles.css'
 
-function Enemy(props) {
+function EnemyRenderer(props) {
   const width = props.size[0]
   const height = props.size[1]
 
@@ -70,7 +70,7 @@ function Enemy(props) {
   </>)
 }
 
-export default (world, pos, size, angle, index, value, dead) => {
+export default Enemy = (world, pos, size, angle, index, value, dead) => {
   const initialEnemy = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
@@ -81,14 +81,14 @@ export default (world, pos, size, angle, index, value, dead) => {
       friction: 1,
       label: `Enemy_${index}`
     }
-  );
-  Matter.World.add(world, [initialEnemy]);
+  )
+  Matter.World.add(world, [initialEnemy])
 
   return {
     body: initialEnemy,
     size: [size.width, size.height],
     degree: angle,
     index, value, dead,
-    renderer: <Enemy />,
-  };
-};
+    renderer: <EnemyRenderer />,
+  }
+}

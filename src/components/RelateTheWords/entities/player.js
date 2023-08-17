@@ -2,7 +2,7 @@ import React from 'react'
 import Matter from 'matter-js'
 import Tank from '../../../assets/tank-player.png'
 
-function Player(props) {
+function PlayerRenderer(props) {
   const width = props.size[0]
   const height = props.size[1]
   const x = props.body.position.x - width / 2
@@ -30,19 +30,19 @@ function Player(props) {
   )
 }
 
-export default (world, pos, size) => {
+export default Player = (world, pos, size) => {
   const initialPlayer = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
     size.width,
     size.height,
   );
-  Matter.World.add(world, [initialPlayer]);
+  Matter.World.add(world, [initialPlayer])
 
   return {
     body: initialPlayer,
     size: [size.width, size.height],
     degree: 0, dontShoot: false,
-    renderer: <Player />,
-  };
-};
+    renderer: <PlayerRenderer />,
+  }
+}
