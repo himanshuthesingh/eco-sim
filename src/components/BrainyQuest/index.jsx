@@ -143,10 +143,10 @@ function BrainyQuest() {
   const livesContent = () => {
     return (
       <div className='bq-life'>
-        {[...Array(5 - lives)].map((elementInArray, index) => (
+        {[...Array(5 - lives)].map((el, index) => (
           <FaRegHeart className='bq-life-icon' key={index} />
         ))}
-        {[...Array(lives)].map((elementInArray, index) => (
+        {[...Array(lives)].map((el, index) => (
           <FaHeart className='bq-life-icon' key={index} />
         ))}
       </div>
@@ -154,7 +154,6 @@ function BrainyQuest() {
   }
 
   const handleGoBack = () => {
-    dispatch()
     navigate(-1)
   }
 
