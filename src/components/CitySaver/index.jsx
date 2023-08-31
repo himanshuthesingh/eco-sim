@@ -10,8 +10,18 @@ import Entities from './entities'
 import data from '../../data/citySaver.json'
 import { setCitySaverHighScore } from '../../store/highScore/actions'
 import { setScreen } from '../../store/screen/actions'
-import ExplosionSound from '../../assets/sounds/Explosion.mp3'
+import getConstants from './utils/constants'
 import './styles.css'
+
+import ExplosionSound from '../../assets/sounds/Explosion.mp3'
+import CorrectSound from '../../assets/sounds/Correct_Answer.mp3'
+
+import moneySupplyImg from '../../assets/money-supply.png'
+import educationalSupplyImg from '../../assets/educational-supply.png'
+import cleaningSupplyImg from '../../assets/cleaning-supply.png'
+import foodSupplyImg from '../../assets/food-supply.png'
+import medicalSupplyImg from '../../assets/medical-supply.png'
+import energySupplyImg from '../../assets/energy-supply.png'
 
 const aboutContent = <>
   <p>Save your City !!</p>
@@ -22,7 +32,7 @@ const aboutContent = <>
 </>
 
 const gameOverText = (score, highScore) => <>
-  <p>You scored {score} point(s).</p>
+  <p>You collected {score} supplies for the city.</p>
   <p><b>High Score</b> - {highScore}</p>
   {score < 5 ?
     <p>Better Luck Next Time !!</p>
@@ -41,6 +51,7 @@ const highestScoreText = (score) => <>
 let gameEngine = null
 
 function CitySaver() {
+  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
   const [showModal, setShowModal] = useState(true)
   const [modalContent, setModalContent] = useState(aboutContent)
   const [modalTitle, setModalTitle] = useState('City Saver')
@@ -49,6 +60,7 @@ function CitySaver() {
   const [isGameOn, setIsGameOn] = useState(false)
   const [running, setRunning] = useState(false)
   const [score, setScore] = useState(0)
+  const [scored, setScored] = useState(new Set())
   const [gameOver, setGameOver] = useState(false)
   const [index, setIndex] = useState(0)
   const [objectives, setObjectives] = useState(data)
@@ -56,6 +68,32 @@ function CitySaver() {
   const highScore = useSelector((state) => state.highScore)
   const dispatch = useDispatch()
   let navigate = useNavigate()
+
+  const Constants = getConstants()
+  let supplyImg = ''
+
+  switch (objectives[index].type) {
+    case Constants.OBJECTIVE.MONEY:
+      supplyImg = moneySupplyImg
+      break
+    case Constants.OBJECTIVE.FOOD:
+      supplyImg = foodSupplyImg
+      break
+    case Constants.OBJECTIVE.EDUCATION:
+      supplyImg = educationalSupplyImg
+      break
+    case Constants.OBJECTIVE.ENERGY:
+      supplyImg = energySupplyImg
+      break
+    case Constants.OBJECTIVE.MEDICAL:
+      supplyImg = medicalSupplyImg
+      break
+    case Constants.OBJECTIVE.SANITATION:
+      supplyImg = cleaningSupplyImg
+      break
+    default:
+      supplyImg = moneySupplyImg
+  }
 
   const fetchData = () => {
     const objectiveData = data.map((x) => x)
@@ -89,6 +127,7 @@ function CitySaver() {
         dispatch(setCitySaverHighScore(score))
       }
       setScore(0)
+      setScored(new Set())
       setGameOver(false)
       setIsGameOn(false)
     }
@@ -117,8 +156,14 @@ function CitySaver() {
     }
 
     if (event.type === 'score') {
-      if (score < event.value) {
-        setScore(event.value)
+      console.log(event.value, scored)
+      if (!scored.has(event.value)) {
+        setScore(prevScore => prevScore + 1)
+        setScored(prevScored => prevScored.add(event.value))
+        setCorrectSound({ status: 'PLAYING' })
+        setTimeout(() => {
+          setCorrectSound({ status: 'STOPPED' })
+        }, 200)
       }
     }
   }
@@ -130,6 +175,7 @@ function CitySaver() {
   return (
     <div>
       <ReactSound url={ExplosionSound} playStatus={explosionSound.status} volume={20} onFinishedPlaying={() => setExplosionSound({ status: 'STOPPED' })} autoLoad />
+      <ReactSound url={CorrectSound} playStatus={correctSound.status} playFromPosition={0} volume={50} onFinishedPlaying={() => setCorrectSound({ status: 'STOPPED' })} autoLoad />
       <Modal
         title={modalTitle}
         isOpen={showModal}
@@ -148,6 +194,7 @@ function CitySaver() {
           <div className='city-content'>
             <div className='city-objective'>Objective</div>
             <div className='city-text'>{objectives[index].objective}</div>
+            <img className='city-supply-img' src={supplyImg} />
             <button className='city-button' onClick={handleGameStart}>Play</button>
           </div>
         </div>
@@ -158,7 +205,7 @@ function CitySaver() {
             className='cs-game-engine'
             systems={Systems}
             onEvent={onEvent}
-            entities={Entities()}
+            entities={Entities(objectives[index].type)}
             running={running}>
           </GameEngine>
           <div className='cs-score'>Score - {score}</div>

@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import ReactSound from 'react-sound'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
-import data from '../../data/brainyQuest.json'
 import { setBrainyQuestHighScore } from '../../store/highScore/actions'
 import { setScreen } from '../../store/screen/actions'
 import CorrectSound from '../../assets/sounds/Correct_Answer.mp3'
@@ -18,45 +17,60 @@ const aboutContent = <>
   <p>Happy Gaming !!</p>
 </>
 
-const gameOverText = (score, highScore) => <>
-  <p>You scored {score} point(s).</p>
+const gameOverText = (score, highScore, total) => <>
+  <p>You scored {score} out of {total}.</p>
   <p><b>High Score</b> - {highScore}</p>
-  {score < 5 ?
+  {(score / total) < 0.5 ?
     <p>Better Luck Next Time !!</p>
     :
     <p>Good Game !!</p>
   }
 </>
 
-const highestScoreText = (score) => <>
+const highestScoreText = (score, total) => <>
   <p>Congratulations !!</p>
   <p>You've beaten the highest score.</p>
+  <p>You scored {score} out of {total}.</p>
   <p>New High Score - {score}</p>
   <p>Bravo !!</p>
 </>
 
+const gameCompletedText = (score, total) => <>
+  <p>Congratulations !!</p>
+  <p>You've completed the game.</p>
+  <p>You scored - {score} out of {total}</p>
+  {score < total ?
+    <p>Bravo !!</p>
+    :
+    <p>Excellent !!</p>
+  }
+</>
+
 function BrainyQuest() {
-  const [showModal, setShowModal] = useState(true)
+  const highScore = useSelector((state) => state.highScore)
+  const questionsData = useSelector((state) => state.questions.brainyQuest)
+
+  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
+  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
   const [modalContent, setModalContent] = useState(aboutContent)
   const [modalTitle, setModalTitle] = useState('Brainy Quest')
+  const [showModal, setShowModal] = useState(true)
   const [btnTitle, setBtnTitle] = useState('Play')
-  const [altBtn, setAltBtn] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
   const [answered, setAnswered] = useState(false)
   const [questions, setQuestions] = useState([])
+  const [altBtn, setAltBtn] = useState(false)
   const [index, setIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [lives, setLives] = useState(5)
-  const [gameOver, setGameOver] = useState(false)
-  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
-  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
-  const highScore = useSelector((state) => state.highScore)
+
   const dispatch = useDispatch()
   let navigate = useNavigate()
 
   const fetchData = () => {
-    const questionsData = data.map((x) => x)
-    questionsData.sort(() => Math.random() - 0.5)
-    setQuestions(questionsData)
+    let temp = questionsData
+    temp.sort(() => Math.random() - 0.5)
+    setQuestions(temp)
   }
 
   useEffect(() => {
@@ -82,19 +96,35 @@ function BrainyQuest() {
 
   const handleOptionClick = (option) => {
     if (option === correctOption) {
+      const newScore = score+1
       setCorrectSound({ status: 'PLAYING' })
-      setScore(prevState => prevState + 1)
-      setAnswered(true)
+      setScore(newScore)
+      if (index === questions.length - 1) {
+        setModalTitle('Quest Completed !!')
+        if (score > highScore.brainyQuest) {
+          setModalContent(highestScoreText(newScore, questions.length))
+        }
+        else {
+          setModalContent(gameCompletedText(newScore, questions.length))
+        }
+        setBtnTitle('Play Again')
+        setAltBtn(true)
+        setShowModal(true)
+        setGameOver(true)
+      }
+      else {
+        setAnswered(true)
+      }
     }
     else {
       setWrongSound({ status: 'PLAYING' })
       if (lives === 1) {
         setModalTitle('Game Over !!')
-        if (score > highScore.brainyQuest) {
-          setModalContent(highestScoreText(score))
+        if (score > highScore.brainyQuest && highScore.brainyQuest > 0) {
+          setModalContent(highestScoreText(score, questions.length))
         }
         else {
-          setModalContent(gameOverText(score, highScore.brainyQuest))
+          setModalContent(gameOverText(score, highScore.brainyQuest, questions.length))
         }
         setBtnTitle('Play Again')
         setAltBtn(true)
@@ -108,12 +138,7 @@ function BrainyQuest() {
   }
 
   const handleNextClick = () => {
-    if (index === questions.length - 1) {
-      setIndex(0)
-    }
-    else {
-      setIndex(prevState => prevState + 1)
-    }
+    setIndex(prevState => prevState + 1)
     setAnswered(false)
   }
 
@@ -154,6 +179,9 @@ function BrainyQuest() {
   }
 
   const handleGoBack = () => {
+    if (score > highScore.brainyQuest) {
+      dispatch(setBrainyQuestHighScore(score))
+    }
     navigate(-1)
   }
 
@@ -181,9 +209,9 @@ function BrainyQuest() {
         </div>
         <div className='bq-instruction'>Click on the correct word and complete the given sentence.</div>
         <div className='bq-ques'>
-          <div>{quesPart1}</div>
-          <div className={blankStyle}>{blankContent}</div>
-          <div>{quesPart2}</div>
+          <span>{quesPart1}</span>
+          <span className={blankStyle}>{blankContent}</span>
+          <span>{quesPart2}</span>
         </div>
         <div className='bq-options'>
           <div className={optionStyle} onClick={() => handleOptionClick(1)}>{options[0]}</div>

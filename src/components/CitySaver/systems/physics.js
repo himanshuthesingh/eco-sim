@@ -6,7 +6,18 @@ const Physics = (entities, { time, dispatch }) => {
   if (entities.physics.pause === false) {
     Matter.Engine.update(engine, time.delta)
     Matter.Events.on(engine, 'collisionStart', event => {
-      dispatch({ type: 'gameOver' })
+      if (event && event.pairs && event.pairs.length > 0) {
+        const labelA = event.pairs[0].bodyA.label
+        const labelB = event.pairs[0].bodyB.label
+
+        if (labelA.includes('Supply_') || labelB.includes('Supply_')) {
+          const supply = labelB.includes('Supply_') ? labelB : labelA
+          dispatch({ type: 'supplyHit', target: supply })
+        }
+        else {
+          dispatch({ type: 'obstacleHit' })
+        }
+      }
     })
   }
 

@@ -6,7 +6,6 @@ import { GameEngine } from 'react-game-engine'
 import ReactSound from 'react-sound'
 import Header from '../Common/Header'
 import Modal from '../Common/Modal'
-import data from '../../data/relatedWords.json'
 import Systems from './systems'
 import Entities from './entities'
 import { setRelatedWordsHighScore } from '../../store/highScore/actions'
@@ -26,50 +25,64 @@ const aboutContent = <>
   <p>So, Fire Away !!</p>
 </>
 
-const gameOverText = (score, highScore) => <>
-  <p>You scored {score} point(s).</p>
+const gameOverText = (score, highScore, total) => <>
+  <p>You scored {score} out of {total}.</p>
   <p><b>High Score</b> - {highScore}</p>
-  {score < 5 ?
+  {(score / total) < 0.5 ?
     <p>Better Luck Next Time !!</p>
     :
     <p>Good Game !!</p>
   }
 </>
 
-const highestScoreText = (score) => <>
+const highestScoreText = (score, total) => <>
   <p>Congratulations !!</p>
   <p>You've beaten the highest score.</p>
+  <p>You scored {score} out of {total}.</p>
   <p>New High Score - {score}</p>
   <p>Bravo !!</p>
+</>
+
+const gameCompletedText = (score, total) => <>
+  <p>Congratulations !!</p>
+  <p>You've completed the game.</p>
+  <p>You scored - {score} out of {total}</p>
+  {score < total ?
+    <p>Bravo !!</p>
+    :
+    <p>Excellent !!</p>
+  }
 </>
 
 let gameEngine = null
 
 function RelateTheWords() {
-  const [showModal, setShowModal] = useState(true)
-  const [modalContent, setModalContent] = useState(aboutContent)
+  const highScore = useSelector((state) => state.highScore)
+  const questionsData = useSelector((state) => state.questions.relateTheWords)
+
+  const [explosionSound, setExplosionSound] = useState({ status: 'STOPPED', enemy: 0 })
+  const [gunFireSound, setGunFireSound] = useState({ status: 'STOPPED', pos: 0 })
+  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
+  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
   const [modalTitle, setModalTitle] = useState('Relate The Words')
+  const [modalContent, setModalContent] = useState(aboutContent)
   const [btnTitle, setBtnTitle] = useState('Play')
-  const [altBtn, setAltBtn] = useState(false)
+  const [showModal, setShowModal] = useState(true)
+  const [gameOver, setGameOver] = useState(false)
   const [questions, setQuestions] = useState([])
+  const [running, setRunning] = useState(true)
+  const [altBtn, setAltBtn] = useState(false)
   const [index, setIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [lives, setLives] = useState(5)
-  const [running, setRunning] = useState(true)
-  const [gameOver, setGameOver] = useState(false)
-  const [gunFireSound, setGunFireSound] = useState({ status: 'STOPPED', pos: 0 })
-  const [explosionSound, setExplosionSound] = useState({ status: 'STOPPED', enemy: 0 })
-  const [correctSound, setCorrectSound] = useState({ status: 'STOPPED' })
-  const [wrongSound, setWrongSound] = useState({ status: 'STOPPED' })
 
-  const highScore = useSelector((state) => state.highScore)
   const dispatch = useDispatch()
   let navigate = useNavigate()
 
   const fetchData = () => {
-    const questionsData = data.map((x) => x)
-    questionsData.sort(() => Math.random() - 0.5)
-    setQuestions(questionsData)
+    let temp = questionsData
+    temp.sort(() => Math.random() - 0.5)
+    setQuestions(temp)
   }
 
   useEffect(() => {
@@ -129,6 +142,7 @@ function RelateTheWords() {
       if (event.payload.option === correctOption) {
         setCorrectSound({ status: 'PLAYING' })
         gameEngine.dispatch({ type: 'hit-check', success: true })
+        setScore(prevState => prevState + 1)
       }
       else {
         if (lives > 1) {
@@ -140,13 +154,19 @@ function RelateTheWords() {
     }
 
     if (event.type === 'next-level') {
-      setScore(prevState => prevState + 1)
-
       gameEngine.clear()
       if (index === questions.length - 1) {
-        setIndex(0)
-        setQuestions(prevState => prevState.sort(() => Math.random() - 0.5))
-        gameEngine.dispatch({ type: 'restart', payload: questions[0].options })
+        setModalTitle('Game Completed !!')
+        if (score > highScore.relatedWords) {
+          setModalContent(highestScoreText(score, questions.length))
+        }
+        else {
+          setModalContent(gameCompletedText(score, questions.length))
+        }
+        setBtnTitle('Play Again')
+        setAltBtn(true)
+        setShowModal(true)
+        setGameOver(true)
       }
       else {
         setIndex(prevState => prevState + 1)
@@ -156,11 +176,11 @@ function RelateTheWords() {
 
     if (event.type === 'game-over') {
       setModalTitle('Game Over !!')
-      if (score > highScore.relatedWords) {
-        setModalContent(highestScoreText(score))
+      if (score > highScore.relatedWords && highScore.relatedWords > 0) {
+        setModalContent(highestScoreText(score, questions.length))
       }
       else {
-        setModalContent(gameOverText(score, highScore.relatedWords))
+        setModalContent(gameOverText(score, highScore.relatedWords, questions.length))
       }
       setBtnTitle('Play Again')
       setAltBtn(true)
@@ -183,6 +203,9 @@ function RelateTheWords() {
   }
 
   const handleGoBack = () => {
+    if (score > highScore.relatedWords) {
+      dispatch(setRelatedWordsHighScore(score))
+    }
     navigate(-1)
   }
 

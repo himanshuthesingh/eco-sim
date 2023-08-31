@@ -44,8 +44,9 @@ function Welcome() {
           onChange={(event) => setPlayer(event.target.value)} 
           spellCheck={false}
         />
-        <button className='submit' type='submit' onClick={handleSubmit} disabled={playerName === ''}>Play</button>
+        <button className='welcome-submit' type='submit' onClick={handleSubmit} disabled={playerName === ''}>Play</button>
       </div>
+      <button className='welcome-admin' onClick={() => navigate('/Admin')}>Admin</button>
     </div>
   )
 }

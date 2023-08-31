@@ -7,6 +7,7 @@ import RelateTheWords from './components/RelateTheWords'
 import BrainyQuest from './components/BrainyQuest'
 import CitySaver from './components/CitySaver'
 import Welcome from './components/Welcome'
+import Admin from './components/Admin'
 import Menu from './components/Menu'
 import './App.css'
 
@@ -26,7 +27,6 @@ import './assets/fonts/Improvie.otf'
 
 function App() {
   const [bgMusicStatus, setBgMusicStatus] = useState('STOPPED')
-  // const [bgMusicPos, setBgMusicPos] = useState(0)
   const screen = useSelector((state) => state.screen)
 
   let BgMusic = HomeBgMusic
@@ -65,9 +65,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/Menu" element={<Menu />} />
-          <Route path="/CitySaver" element={<CitySaver />} />
           <Route path="/RelateTheWords" element={<RelateTheWords />} />
           <Route path="/BrainyQuest" element={<BrainyQuest />} />
+          <Route path="/CitySaver" element={<CitySaver />} />
+          <Route path="/Admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </div>

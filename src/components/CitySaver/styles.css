@@ -12,7 +12,6 @@
 .city-heading {
   font-size: 6rem;
   font-family: 'Peace Sans';
-  margin: 1rem;
   background-image: linear-gradient(to top, #111111 0%, #006663 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -24,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 2rem;
+  margin-top: 1rem;
   background: rgba(95, 158, 160, 0.8);
   padding: 1rem;
   border-radius: 6rem;
@@ -39,6 +38,13 @@
   font-family: 'Improvie';
   font-size: 2rem;
   margin: 1rem;
+}
+
+.city-supply-img {
+  width: 10rem;
+  height: 10rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
 .city-button {

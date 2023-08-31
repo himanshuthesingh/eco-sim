@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "json-msg": "^1.2.0",
     "matter-js": "^0.19.0",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.5",
@@ -23,6 +24,9 @@
     "redux-thunk": "^2.4.2",
     "tsparticles-slim": "^2.12.0",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.0"
   },
   "scripts": {
     "start": "react-scripts start",

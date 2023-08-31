@@ -20,6 +20,7 @@
   font-family: 'Qanelas Bold';
   font-size: 2.2rem;
   color: #aee038;
+  text-shadow: 4px 4px 3px #511515;
 }
 
 .welcome-title {
@@ -78,7 +79,7 @@
   color: rgba(244, 244, 215, .5);
 }
 
-.submit {
+.welcome-submit {
   appearance: none;
   border-radius: 2rem;
   border-style: none;
@@ -104,15 +105,58 @@
   touch-action: manipulation;
 }
 
-.submit:hover {
+.welcome-submit:hover {
   transform: scale(1.125);
 }
 
-.submit:active {
+.welcome-submit:active {
   transform: scale(1.025);
 }
 
-.submit:disabled {
+.welcome-submit:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.welcome-admin {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  appearance: none;
+  border-radius: 0.5rem;
+  border-style: none;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Qanelas Bold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.welcome-admin:hover {
+  transform: scale(1.125);
+}
+
+.welcome-admin:active {
+  transform: scale(1.025);
+}
+
+.welcome-admin:disabled {
   pointer-events: none;
   cursor: default;
   opacity: 0.5;

@@ -1,0 +1,138 @@
+.admin-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to top, #543728 0%, #658715 100%);
+}
+
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.admin-title {
+  font-family: 'Peace Sans';
+  font-size: 4rem;
+  color: #aee038;
+  text-shadow: 4px 4px 3px #511515;
+}
+
+.admin-tabs {
+  display: flex;
+  flex-direction: row;    
+  justify-content: flex-start;
+  width: 100%;
+  box-shadow: 0px 4px 4px #658715;
+}
+
+.admin-tab-unselected {
+  padding: 0.5rem 1rem;
+  color: #aee038;
+  font-size: 1.5rem;
+  font-family: 'Qanelas Bold';
+  transition: all .15s;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.admin-tab-selected {
+  padding: 0.5rem 1rem;
+  color: #511515;
+  font-size: 1.5rem;
+  font-family: 'Qanelas Bold';
+  cursor: pointer;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  border-radius: 0.5rem 0.5rem 0 0;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.admin-btns {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-btn {
+  appearance: none;
+  border-radius: 2rem;
+  border-style: none;
+  background-color: #84b01c;
+  box-shadow: #658715 0 -6px 8px inset;
+  box-sizing: border-box;
+  color: #511515;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Qanelas Bold';
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 2rem;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.admin-btn:hover {
+  transform: scale(1.125);
+}
+
+.admin-btn:active {
+  transform: scale(1.025);
+}
+
+.admin-btn:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.admin-file-input {
+  display: none;
+}
+
+.admin-error {
+  margin-top: -1.5rem;
+  color: #801700;
+  font-size: 1rem;
+  font-family: 'Linotte-Regular';
+}
+
+.admin-sample-bg {
+  background-color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.admin-sample-title {
+  color: white;
+  font-size: 2rem;
+  font-family: 'Improvie';
+  text-align: center;
+}
+
+.admin-ques-sample {
+  color: greenyellow;
+  font-size: 1rem;
+  font-family:'Courier New', Courier, monospace
+}
+
+.admin-ques-sample p {
+  margin: 0 0;
+}

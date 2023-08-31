@@ -7,7 +7,7 @@ import getConstants from '../utils/constants'
 
 Matter.Common.isElement = () => false
 
-const entities = (restart) => {
+const entities = (objective, restart) => {
   
   if (restart) {
     Matter.Engine.clear(restart.physics.engine)
@@ -18,14 +18,17 @@ const entities = (restart) => {
   engine.gravity.y = 0.25
 
   const Constants = getConstants()
- // 8 , 800
+  
   return {
-    physics: { engine: engine, world: world, pause: true, speed: { step: 4, delay: 1800, lastUpdate: 0 }},
+    physics: { 
+      engine: engine, world: world, pause: true, objective,
+      speed: { step: 4, delay: 1800, lastUpdate: 0 }
+    },
     Player: Player(
       world,
       'pink',
       {x: Constants.WIDTH / 2, y: Constants.HEIGHT / 2},
-      {height: 50, width: 50 * 2.89719626},
+      {height: 75, width: 75 * 2.89719626},
     ),
     Floor: Floor(
       world,

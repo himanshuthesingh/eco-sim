@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import player from './player/reducer'
 import highScore from './highScore/reducer'
 import screen from './screen/reducer'
+import questions from './questions/reducer'
 import thunk from 'redux-thunk'
 
 const persistConfig = {
@@ -14,7 +15,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   player,
   highScore,
-  screen
+  screen,
+  questions
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

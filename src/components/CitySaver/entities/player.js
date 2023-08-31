@@ -31,9 +31,9 @@ const Player = (world, color, position, size) => {
   const initialPlayer = Matter.Bodies.rectangle(
     position.x,
     position.y,
-    size.width,
-    size.height,
-    { label: 'player' }
+    size.width * 0.6,
+    size.height * 0.6,
+    { label: 'player', isSensor: true }
   );
   Matter.World.add(world, [initialPlayer]);
 

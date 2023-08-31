@@ -19,7 +19,7 @@ function Header(props) {
     <div className='header'>
       <div className='header-item'>
         <RiAccountCircleFill className='header-icon' />
-        <div className='header-name'>{player.name}</div>
+        <div className='header-name'>{props.admin ? 'Admin' : player.name}</div>
       </div>
       <FaQuestionCircle className='header-icon header-btn' onClick={handleHelpClick} />
       <TiArrowBack className='header-icon header-btn' onClick={() => navigate(-1)} />

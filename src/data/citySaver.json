@@ -1,20 +1,26 @@
 [
   {
-    "objective": "You must deliver food supplies to end hunger in city."
+    "objective": "You must collect food supplies to end hunger in city.",
+    "type": 2
   },
   {
-    "objective": "You must remove poverty by delivering supplies to the city."
+    "objective": "You must remove poverty by collecting money bags for the city.",
+    "type": 1
   },
   {
-    "objective": "Deliver medical supplies and provide good health & well-being to citizens."
+    "objective": "Collect medical supplies and provide good health & well-being to citizens.",
+    "type": 5
   },
   {
-    "objective": "Deliver educational supplies to provide quality education in city."
+    "objective": "Collect educational supplies to provide quality education in city.",
+    "type": 3
   },
   {
-    "objective": "You must deliver supplies to provide better sanitation to citizens."
+    "objective": "You must collect supplies to provide better sanitation to citizens.",
+    "type": 4
   },
   {
-    "objective": "Deliver supplies to provide affordable & clean energy to the city."
+    "objective": "Collect supplies to provide affordable & clean energy to the city.",
+    "type": 6
   }
 ]

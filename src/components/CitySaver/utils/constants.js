@@ -10,6 +10,14 @@ const getConstants = () => {
     OBSTACLE_WIDTH: 200,
     OBSTACLE_TOP_RANGE: { min: screenHeight * 0.2, max: screenHeight * 0.35 },
     OBSTACLE_BOTTOM_RANGE: { min: screenHeight * 0.55, max: screenHeight * 0.7 },
+    OBJECTIVE: {
+      MONEY: 1,
+      FOOD: 2,
+      EDUCATION: 3,
+      SANITATION: 4,
+      MEDICAL: 5,
+      ENERGY: 6
+    }
   }
 }
 
