@@ -27,7 +27,7 @@ const aboutContent = <>
   <p>Save your City !!</p>
   <p>By clicking Arrow Up OR Space Button</p>
   <p>Fly through the obstacles</p>
-  <p>And deliver supplies to the city</p>
+  <p>And collect supplies for the city</p>
   <p>Happy Flying !!</p>
 </>
 

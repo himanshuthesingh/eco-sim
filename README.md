@@ -1,10 +1,19 @@
 # Eco-Sim
 
-Eco-Sim is a collection of 3 educational games that will impart knowledge on Children's Rights and Sustainable Development Goals.
+Eco-Sim is a collection of 3 educational games - Relate The Words, Brainy Quest & City Saver. 
+
+These games will impart knowledge on Children's Rights and Sustainable Development Goals.
 
 It is built on React JS framework and utilizes react-game-engine along with Matter.js to build game logic and handle physics.
 
 This game also uses React Redux to store player's name and their high scores in respective games. And persist them to save their score between sessions.
+
+## Eco-Sim Admin
+
+Eco-Sim Admin module can be accessed from welcome page of the game. The objective of this module is to provide customizability for teachers/parents. 
+
+The aim is to provide you the ability to upload your own custom questions for Relate The Words and Brainy Quest games. You can upload them via JSON file by following the given format.
+
 
 ## 1. Relate The Words
 
@@ -28,8 +37,8 @@ The motto of this game is to impart knowledge on Children's Rights.
 
 ## 3. City Saver
 
-City Saver is a fun oriented game. Where the player will be flying a supply helicopter through incoming air traffic.
+City Saver is a fun oriented game. Where the player will be flying a supply helicopter through natural obstacles and collect different supplies for the betterment of the city.
 
-Overcoming the obstacles will score 1 point per obstacle while crashing the helicopter would result in Game Over.
+Collecting each supply will score 1 point and crashing the helicopter would result in Game Over.
 
 The essence of this game is to teach children about Sustainability Development Goals by providing them with different objectives at the start of each game.
